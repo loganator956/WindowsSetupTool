@@ -245,5 +245,11 @@
       "ItchIo.Itch"
     ],
     "AppName": "itch.io"
+  },
+  {
+    "AppName": "digiKam",
+    "AppIDs": [
+      "KDE.digikam"
+    ]
   }
 ]
