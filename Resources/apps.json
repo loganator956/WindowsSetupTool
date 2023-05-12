@@ -89,5 +89,161 @@
       "Valve.Steam"
     ],
     "AppName": "Steam"
+  },
+  {
+    "AppIDs": [
+      "Opera.Opera"
+    ],
+    "AppName": "Opera"
+  },
+  {
+    "AppIDs": [
+      "Microsoft.Edge"
+    ],
+    "AppName": "Microsoft Edge"
+  },
+  {
+    "AppIDs": [
+      "qBittorrent.qBittorrent"
+    ],
+    "AppName": "qBittorrent"
+  },
+  {
+    "AppIDs": [
+      "Mozilla.Thunderbird"
+    ],
+    "AppName": "Thunderbird"
+  },
+  {
+    "AppIDs": [
+      "VideoLAN.VLC"
+    ],
+    "AppName": "VLC"
+  },
+  {
+    "AppIDs": [
+      "EclipseAdoptium.Temurin.8.JRE"
+    ],
+    "AppName": "Eclipse Temurin JRE with Hotspot 8"
+  },
+  {
+    "AppIDs": [
+      "EclipseAdoptium.Temurin.11.JRE"
+    ],
+    "AppName": "Eclipse Temurin JRE with Hotspot 11"
+  },
+  {
+    "AppIDs": [
+      "EclipseAdoptium.Temurin.16.JRE"
+    ],
+    "AppName": "Eclipse Temurin JRE with Hotspot 16"
+  },
+  {
+    "AppIDs": [
+      "EclipseAdoptium.Temurin.17.JRE"
+    ],
+    "AppName": "Eclipse Temurin JRE with Hotspot 17"
+  },
+  {
+    "AppIDs": [
+      "EclipseAdoptium.Temurin.18.JRE"
+    ],
+    "AppName": "Eclipse Temurin JRE with Hotspot 18"
+  },
+  {
+    "AppIDs": [
+      "GIMP.GIMP"
+    ],
+    "AppName": "GIMP"
+  },
+  {
+    "AppIDs": [
+      "dotPDNLLC.paintdotnet"
+    ],
+    "AppName": "Paint.NET"
+  },
+  {
+    "AppIDs": [
+      "BlenderFoundation.Blender"
+    ],
+    "AppName": "Blender"
+  },
+  {
+    "AppIDs": [
+      "Notepad++.Notepad++"
+    ],
+    "AppName": "Notepad++"
+  },
+  {
+    "AppIDs": [
+      "TheDocumentFoundation.LibreOffice"
+    ],
+    "AppName": "LibreOffice"
+  },
+  {
+    "AppIDs": [
+      "Microsoft.Office"
+    ],
+    "AppName": "Microsoft Office"
+  },
+  {
+    "AppIDs": [
+      "Google.Drive"
+    ],
+    "AppName": "Google Drive"
+  },
+  {
+    "AppIDs": [
+      "Parsec.Parsec"
+    ],
+    "AppName": "Parsec"
+  },
+  {
+    "AppIDs": [
+      "TeamViewer.TeamViewer"
+    ],
+    "AppName": "TeamViewer"
+  },
+  {
+    "AppIDs": [
+      "WinDirStat.WinDirStat"
+    ],
+    "AppName": "WinDirStat"
+  },
+  {
+    "AppIDs": [
+      "OBSProject.OBSStudio"
+    ],
+    "AppName": "OBS"
+  },
+  {
+    "AppIDs": [
+      "GOG.Galaxy"
+    ],
+    "AppName": "GOG Galaxy"
+  },
+  {
+    "AppIDs": [
+      "ElectronicArts.EADesktop"
+    ],
+    "AppName": "EA Desktop"
+  },
+  {
+    "AppIDs": [
+      "Ubisoft.Connect"
+    ],
+    "AppName": "Ubisoft Connect"
+  },
+  {
+    "AppIDs": [
+      "EpicGames.EpicGamesLauncher"
+    ],
+    "AppName": "Epic Games Launcher"
+  },
+  {
+    "AppIDs": [
+      "ItchIo.Itch"
+    ],
+    "AppName": "itch.io"
   }
 ]
