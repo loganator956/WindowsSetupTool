@@ -2,11 +2,23 @@
   {
     "AppName": "Firefox",
     "AppDescription": "Firefox",
-    "AppID": "Mozilla.Firefox"
+    "AppIDs": [
+      "Mozilla.Firefox"
+    ]
   },
   {
     "AppName": "Discord",
     "AppDescription": "Discord",
-    "AppID": "Discord.Discord"
+    "AppIDs": [
+      "Discord.Discord"
+    ]
+  },
+  {
+    "AppName": "KeePassXC",
+    "AppDescription": "KeePassXC",
+    "AppIDs": [
+      "KeePassXCTeam.KeePassXC",
+      "Microsoft.VCRedist.2015+.x64"
+    ]
   }
 ]
