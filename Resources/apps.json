@@ -1,21 +1,93 @@
 ﻿[
   {
-    "AppName": "Firefox",
     "AppIDs": [
-      "Mozilla.Firefox"
-    ]
+      "7zip.7zip"
+    ],
+    "AppName": "7 Zip"
   },
   {
-    "AppName": "Discord",
     "AppIDs": [
       "Discord.Discord"
-    ]
+    ],
+    "AppName": "Discord"
   },
   {
-    "AppName": "KeePassXC",
+    "AppIDs": [
+      "Git.Git"
+    ],
+    "AppName": "Git"
+  },
+  {
+    "AppIDs": [
+      "GitHub.GitHubDesktop"
+    ],
+    "AppName": "GitHub Desktop"
+  },
+  {
+    "AppIDs": [
+      "Google.Chrome"
+    ],
+    "AppName": "Google Chrome"
+  },
+  {
     "AppIDs": [
       "KeePassXCTeam.KeePassXC",
       "Microsoft.VCRedist.2015+.x64"
-    ]
+    ],
+    "AppName": "KeePassXC"
+  },
+  {
+    "AppIDs": [
+      "Microsoft.OneDrive"
+    ],
+    "AppName": "OneDrive"
+  },
+  {
+    "AppIDs": [
+      "Microsoft.PowerToys"
+    ],
+    "AppName": "Microsoft PowerToys"
+  },
+  {
+    "AppIDs": [
+      "Microsoft.VisualStudio.2022.Community"
+    ],
+    "AppName": "Visual Studio 2022 Community"
+  },
+  {
+    "AppIDs": [
+      "Microsoft.VisualStudioCode"
+    ],
+    "AppName": "VS Code"
+  },
+  {
+    "AppIDs": [
+      "Mozilla.Firefox"
+    ],
+    "AppName": "Firefox"
+  },
+  {
+    "AppIDs": [
+      "RedHat.VirtViewer"
+    ],
+    "AppName": "Virt Viewer"
+  },
+  {
+    "AppIDs": [
+      "SyncTrayzor.SyncTrayzor"
+    ],
+    "AppName": "SyncTrayzor"
+  },
+  {
+    "AppIDs": [
+      "Unity.UnityHub"
+    ],
+    "AppName": "Unity Hub"
+  },
+  {
+    "AppIDs": [
+      "Valve.Steam"
+    ],
+    "AppName": "Steam"
   }
 ]
