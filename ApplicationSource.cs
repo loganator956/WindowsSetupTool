@@ -6,12 +6,11 @@
         {
             AppName = "";
             AppDescription = "";
-            AppID = "";
+            AppIDs = new string[0];
         }
         public string AppName;
         public string AppDescription;
-        public string AppID;
-        // TODO: Implement dependencies (Could just add multiple AppIDs?)
+        public string[] AppIDs;
 
         public override string ToString()
         {
