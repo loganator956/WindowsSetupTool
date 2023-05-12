@@ -1,6 +1,6 @@
 ﻿namespace WindowsSetupTool
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -38,12 +38,14 @@
             this.availableApplicationsCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.installAllToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.appInformationTextBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.appInformationTextBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.applicationsLogTextBox = new System.Windows.Forms.TextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.appInstallToolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.appInstallToolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.applicationsTabPage.SuspendLayout();
@@ -59,6 +61,7 @@
             this.splitContainer2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -155,14 +158,7 @@
             this.installAllToolStripButton.Name = "installAllToolStripButton";
             this.installAllToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.installAllToolStripButton.Text = "Install All";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(3, 373);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(786, 22);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
+            this.installAllToolStripButton.Click += new System.EventHandler(this.installAllToolStripButton_Click);
             // 
             // splitContainer2
             // 
@@ -181,15 +177,6 @@
             this.splitContainer2.SplitterDistance = 250;
             this.splitContainer2.TabIndex = 0;
             // 
-            // appInformationTextBox
-            // 
-            this.appInformationTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.appInformationTextBox.Location = new System.Drawing.Point(3, 19);
-            this.appInformationTextBox.Multiline = true;
-            this.appInformationTextBox.Name = "appInformationTextBox";
-            this.appInformationTextBox.Size = new System.Drawing.Size(244, 348);
-            this.appInformationTextBox.TabIndex = 0;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.appInformationTextBox);
@@ -200,6 +187,15 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Application Information";
+            // 
+            // appInformationTextBox
+            // 
+            this.appInformationTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.appInformationTextBox.Location = new System.Drawing.Point(3, 19);
+            this.appInformationTextBox.Multiline = true;
+            this.appInformationTextBox.Name = "appInformationTextBox";
+            this.appInformationTextBox.Size = new System.Drawing.Size(244, 348);
+            this.appInformationTextBox.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -221,7 +217,29 @@
             this.applicationsLogTextBox.Size = new System.Drawing.Size(260, 348);
             this.applicationsLogTextBox.TabIndex = 1;
             // 
-            // Form1
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.appInstallToolStripProgressBar1,
+            this.appInstallToolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(3, 373);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(786, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // appInstallToolStripProgressBar1
+            // 
+            this.appInstallToolStripProgressBar1.Name = "appInstallToolStripProgressBar1";
+            this.appInstallToolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            // 
+            // appInstallToolStripStatusLabel1
+            // 
+            this.appInstallToolStripStatusLabel1.Name = "appInstallToolStripStatusLabel1";
+            this.appInstallToolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.appInstallToolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -229,8 +247,9 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Windows Setup Tool";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -252,6 +271,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,5 +295,7 @@
         private TextBox appInformationTextBox;
         private GroupBox groupBox3;
         private TextBox applicationsLogTextBox;
+        private ToolStripProgressBar appInstallToolStripProgressBar1;
+        private ToolStripStatusLabel appInstallToolStripStatusLabel1;
     }
 }

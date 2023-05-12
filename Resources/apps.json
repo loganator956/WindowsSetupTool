@@ -1,0 +1,12 @@
+﻿[
+  {
+    "AppName": "Firefox",
+    "AppDescription": "Firefox",
+    "AppID": "Mozilla.Firefox"
+  },
+  {
+    "AppName": "Discord",
+    "AppDescription": "Discord",
+    "AppID": "Discord.Discord"
+  }
+]
