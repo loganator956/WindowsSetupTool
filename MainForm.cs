@@ -52,17 +52,20 @@ namespace WindowsSetupTool
                 appInstallToolStripProgressBar1.Value = i / apps.Length;
 
                 // install using winget
-                ProcessStartInfo wingetInfo = new ProcessStartInfo("winget.exe");
-                wingetInfo.ArgumentList.Add("install");
-                wingetInfo.ArgumentList.Add("-e");
-                wingetInfo.ArgumentList.Add(currentApp.AppID);
+                foreach (string appID in currentApp.AppIDs)
+                {
+                    ProcessStartInfo wingetInfo = new ProcessStartInfo("winget.exe");
+                    wingetInfo.ArgumentList.Add("install");
+                    wingetInfo.ArgumentList.Add("-e");
+                    wingetInfo.ArgumentList.Add(appID);
 
-                Process wingetProc = new Process();
-                wingetProc.StartInfo = wingetInfo;
-                wingetProc.Start();
-                // TODO: implement multi-threading and update the GUI with any new things (BackgroundWorker?)
-                wingetProc.WaitForExit();
-                Debug.WriteLine($"Installed {currentApp.AppID}");
+                    Process wingetProc = new Process();
+                    wingetProc.StartInfo = wingetInfo;
+                    wingetProc.Start();
+                    // TODO: implement multi-threading and update the GUI with any new things (BackgroundWorker?)
+                    wingetProc.WaitForExit();
+                    Debug.WriteLine($"Installed {appID}");
+                }
             }
             installAllToolStripButton.Enabled = true;
             appInstallToolStripStatusLabel1.Text = "Completed installing apps";
