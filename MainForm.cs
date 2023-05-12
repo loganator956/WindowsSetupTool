@@ -38,7 +38,7 @@ namespace WindowsSetupTool
         {
             installAllToolStripButton.Enabled = false;
 
-            var sel = availableApplicationsCheckedListBox.SelectedItems;
+            var sel = availableApplicationsCheckedListBox.CheckedItems;
 
             InstallApps(sel.Cast<ApplicationSource>().ToArray<ApplicationSource>());
         }
