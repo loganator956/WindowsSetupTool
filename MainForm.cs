@@ -15,6 +15,7 @@ namespace WindowsSetupTool
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Winget.LoadInfoCache();
             LoadApps();
             RepopulateAppList();
         }
@@ -48,8 +49,8 @@ namespace WindowsSetupTool
         private void InstallApps(ApplicationSource[] apps)
         {
             List<ApplicationSource> installQueue = new List<ApplicationSource>();
-            
-            foreach(ApplicationSource app in apps)
+
+            foreach (ApplicationSource app in apps)
             {
                 installQueue.AddRange(GatherSources(app));
             }
@@ -70,7 +71,7 @@ namespace WindowsSetupTool
         {
             List<ApplicationSource> applicationSources = new List<ApplicationSource>();
             applicationSources.Add(parent);
-            foreach(ApplicationSource source in parent.Dependencies)
+            foreach (ApplicationSource source in parent.Dependencies)
             {
                 applicationSources.AddRange(GatherSources(source));
             }
@@ -79,7 +80,7 @@ namespace WindowsSetupTool
 
         private void InstallApp(ApplicationSource app)
         {
-            switch(app.Type)
+            switch (app.Type)
             {
                 case InstallType.Winget:
                     Winget.InstallApp(app.AppID);
@@ -92,19 +93,7 @@ namespace WindowsSetupTool
 
         private void availableApplicationsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ApplicationSource selected = (ApplicationSource)availableApplicationsCheckedListBox.SelectedItem;
-            ProcessStartInfo inf = new ProcessStartInfo("winget.exe");
-            inf.ArgumentList.Add("show");
-            inf.ArgumentList.Add(selected.AppID);
-            inf.UseShellExecute = false;
-            inf.RedirectStandardOutput = true;
-            Process winget = new Process();
-            winget.StartInfo = inf;
-            winget.Start();
-            StreamReader reader = winget.StandardOutput;
-            string output = reader.ReadToEnd();
-            appInformationTextBox.Text = output;
-            winget.WaitForExit();
+            appInformationTextBox.Text = Winget.GetAppInfo(((ApplicationSource)availableApplicationsCheckedListBox.SelectedItem).AppID);
         }
     }
 }
