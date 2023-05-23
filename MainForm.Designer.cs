@@ -38,16 +38,14 @@
             availableApplicationsCheckedListBox = new CheckedListBox();
             toolStrip1 = new ToolStrip();
             installAllToolStripButton = new ToolStripButton();
-            splitContainer2 = new SplitContainer();
-            groupBox2 = new GroupBox();
-            appInformationTextBox = new TextBox();
-            groupBox3 = new GroupBox();
-            applicationsLogTextBox = new TextBox();
+            toolStripSeparator1 = new ToolStripSeparator();
+            importListToolStripButton = new ToolStripButton();
             statusStrip1 = new StatusStrip();
             appInstallToolStripProgressBar1 = new ToolStripProgressBar();
             appInstallToolStripStatusLabel1 = new ToolStripStatusLabel();
-            toolStripSeparator1 = new ToolStripSeparator();
-            toolStripButton1 = new ToolStripButton();
+            exportListToolStripButton = new ToolStripButton();
+            groupBox2 = new GroupBox();
+            appInformationTextBox = new TextBox();
             menuStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             applicationsTabPage.SuspendLayout();
@@ -57,13 +55,8 @@
             splitContainer1.SuspendLayout();
             groupBox1.SuspendLayout();
             toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
-            splitContainer2.Panel1.SuspendLayout();
-            splitContainer2.Panel2.SuspendLayout();
-            splitContainer2.SuspendLayout();
-            groupBox2.SuspendLayout();
-            groupBox3.SuspendLayout();
             statusStrip1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -115,9 +108,9 @@
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(splitContainer2);
+            splitContainer1.Panel2.Controls.Add(groupBox2);
             splitContainer1.Size = new Size(786, 370);
-            splitContainer1.SplitterDistance = 262;
+            splitContainer1.SplitterDistance = 344;
             splitContainer1.TabIndex = 2;
             // 
             // groupBox1
@@ -127,7 +120,7 @@
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(262, 370);
+            groupBox1.Size = new Size(344, 370);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Available Applications";
@@ -138,16 +131,16 @@
             availableApplicationsCheckedListBox.FormattingEnabled = true;
             availableApplicationsCheckedListBox.Location = new Point(3, 44);
             availableApplicationsCheckedListBox.Name = "availableApplicationsCheckedListBox";
-            availableApplicationsCheckedListBox.Size = new Size(256, 323);
+            availableApplicationsCheckedListBox.Size = new Size(338, 323);
             availableApplicationsCheckedListBox.TabIndex = 0;
             availableApplicationsCheckedListBox.SelectedIndexChanged += availableApplicationsCheckedListBox_SelectedIndexChanged;
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { installAllToolStripButton, toolStripSeparator1, toolStripButton1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { installAllToolStripButton, toolStripSeparator1, exportListToolStripButton, importListToolStripButton });
             toolStrip1.Location = new Point(3, 19);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(256, 25);
+            toolStrip1.Size = new Size(338, 25);
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -161,62 +154,19 @@
             installAllToolStripButton.Text = "Install All";
             installAllToolStripButton.Click += installAllToolStripButton_Click;
             // 
-            // splitContainer2
+            // toolStripSeparator1
             // 
-            splitContainer2.Dock = DockStyle.Fill;
-            splitContainer2.Location = new Point(0, 0);
-            splitContainer2.Name = "splitContainer2";
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 25);
             // 
-            // splitContainer2.Panel1
+            // importListToolStripButton
             // 
-            splitContainer2.Panel1.Controls.Add(groupBox2);
-            // 
-            // splitContainer2.Panel2
-            // 
-            splitContainer2.Panel2.Controls.Add(groupBox3);
-            splitContainer2.Size = new Size(520, 370);
-            splitContainer2.SplitterDistance = 250;
-            splitContainer2.TabIndex = 0;
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(appInformationTextBox);
-            groupBox2.Dock = DockStyle.Fill;
-            groupBox2.Location = new Point(0, 0);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(250, 370);
-            groupBox2.TabIndex = 1;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Application Information";
-            // 
-            // appInformationTextBox
-            // 
-            appInformationTextBox.Dock = DockStyle.Fill;
-            appInformationTextBox.Location = new Point(3, 19);
-            appInformationTextBox.Multiline = true;
-            appInformationTextBox.Name = "appInformationTextBox";
-            appInformationTextBox.Size = new Size(244, 348);
-            appInformationTextBox.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(applicationsLogTextBox);
-            groupBox3.Dock = DockStyle.Fill;
-            groupBox3.Location = new Point(0, 0);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(266, 370);
-            groupBox3.TabIndex = 0;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Applications Log";
-            // 
-            // applicationsLogTextBox
-            // 
-            applicationsLogTextBox.Dock = DockStyle.Fill;
-            applicationsLogTextBox.Location = new Point(3, 19);
-            applicationsLogTextBox.Multiline = true;
-            applicationsLogTextBox.Name = "applicationsLogTextBox";
-            applicationsLogTextBox.Size = new Size(260, 348);
-            applicationsLogTextBox.TabIndex = 1;
+            importListToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            importListToolStripButton.Image = (Image)resources.GetObject("importListToolStripButton.Image");
+            importListToolStripButton.ImageTransparentColor = Color.Magenta;
+            importListToolStripButton.Name = "importListToolStripButton";
+            importListToolStripButton.Size = new Size(23, 22);
+            importListToolStripButton.Text = "toolStripButton1";
             // 
             // statusStrip1
             // 
@@ -238,19 +188,34 @@
             appInstallToolStripStatusLabel1.Size = new Size(118, 17);
             appInstallToolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // toolStripSeparator1
+            // exportListToolStripButton
             // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 25);
+            exportListToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            exportListToolStripButton.Image = (Image)resources.GetObject("exportListToolStripButton.Image");
+            exportListToolStripButton.ImageTransparentColor = Color.Magenta;
+            exportListToolStripButton.Name = "exportListToolStripButton";
+            exportListToolStripButton.Size = new Size(23, 22);
+            exportListToolStripButton.Text = "toolStripButton2";
             // 
-            // toolStripButton1
+            // groupBox2
             // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(23, 22);
-            toolStripButton1.Text = "toolStripButton1";
+            groupBox2.Controls.Add(appInformationTextBox);
+            groupBox2.Dock = DockStyle.Fill;
+            groupBox2.Location = new Point(0, 0);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(438, 370);
+            groupBox2.TabIndex = 2;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Application Information";
+            // 
+            // appInformationTextBox
+            // 
+            appInformationTextBox.Dock = DockStyle.Fill;
+            appInformationTextBox.Location = new Point(3, 19);
+            appInformationTextBox.Multiline = true;
+            appInformationTextBox.Name = "appInformationTextBox";
+            appInformationTextBox.Size = new Size(432, 348);
+            appInformationTextBox.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -276,16 +241,10 @@
             groupBox1.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            splitContainer2.Panel1.ResumeLayout(false);
-            splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
-            splitContainer2.ResumeLayout(false);
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -302,14 +261,12 @@
         private ToolStrip toolStrip1;
         private ToolStripButton installAllToolStripButton;
         private StatusStrip statusStrip1;
-        private SplitContainer splitContainer2;
-        private GroupBox groupBox2;
-        private TextBox appInformationTextBox;
-        private GroupBox groupBox3;
-        private TextBox applicationsLogTextBox;
         private ToolStripProgressBar appInstallToolStripProgressBar1;
         private ToolStripStatusLabel appInstallToolStripStatusLabel1;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripButton toolStripButton1;
+        private ToolStripButton importListToolStripButton;
+        private ToolStripButton exportListToolStripButton;
+        private GroupBox groupBox2;
+        private TextBox appInformationTextBox;
     }
 }
