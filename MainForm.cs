@@ -47,65 +47,47 @@ namespace WindowsSetupTool
 
         private void InstallApps(ApplicationSource[] apps)
         {
-            for (int i = 0; i < apps.Length; i++)
+            List<ApplicationSource> installQueue = new List<ApplicationSource>();
+            
+            foreach(ApplicationSource app in apps)
             {
-                ApplicationSource currentApp = apps[i];
+                installQueue.AddRange(GatherSources(app));
+            }
+
+            for (int i = 0; i < installQueue.Count; i++)
+            {
+                ApplicationSource currentApp = installQueue[i];
+                InstallApp(currentApp);
                 appInstallToolStripStatusLabel1.Text = $"Installing: {currentApp.AppName}";
                 appInstallToolStripProgressBar1.Value = i / apps.Length;
-
-                // install using winget
-                switch (currentApp.Type)
-                {
-                    case InstallType.Winget:
-                        foreach (string appID in currentApp.GetIDs())
-                        {
-                            Winget.InstallApp(appID);
-                            Debug.WriteLine($"Installed {appID}");
-                        }
-                        break;
-                    case InstallType.DirectInstaller:
-                        string fileName = Path.Combine("temp", (currentApp.TempFileName != null ? currentApp.TempFileName : Path.GetFileName(currentApp.AppID)));
-                        if (!Directory.Exists("temp"))
-                            Directory.CreateDirectory("temp");
-                        using (var client = new HttpClient())
-                        {
-                            using (var s = client.GetStreamAsync(currentApp.AppID))
-                            {
-                                using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-                                {
-                                    s.Result.CopyTo(fs);
-                                }
-                            }
-                        }
-                        ProcessStartInfo dInfo = new ProcessStartInfo(fileName);
-                        
-                        // try running the app as user, if it requires administration to start then will run as admin ?
-                        Process installer = new Process();
-                        installer.StartInfo = dInfo;
-                        try
-                        {
-                            installer.Start();
-                            installer.WaitForExit();
-                        }
-                        catch(Win32Exception e)
-                        {
-                            // 740
-                            if (e.NativeErrorCode == 740)
-                            {
-                                // needs to be executed as admin
-                                dInfo.UseShellExecute = true;
-                                dInfo.Verb = "runas";
-                                installer.Start();
-                                installer.WaitForExit();
-                            }
-                        }
-                        File.Delete(fileName);
-                        break;
-                }
             }
             installAllToolStripButton.Enabled = true;
             appInstallToolStripStatusLabel1.Text = "Completed installing apps";
             appInstallToolStripProgressBar1.Value = 100;
+        }
+
+        private List<ApplicationSource> GatherSources(ApplicationSource parent)
+        {
+            List<ApplicationSource> applicationSources = new List<ApplicationSource>();
+            applicationSources.Add(parent);
+            foreach(ApplicationSource source in parent.Dependencies)
+            {
+                applicationSources.AddRange(GatherSources(source));
+            }
+            return applicationSources;
+        }
+
+        private void InstallApp(ApplicationSource app)
+        {
+            switch(app.Type)
+            {
+                case InstallType.Winget:
+                    Winget.InstallApp(app.AppID);
+                    break;
+                case InstallType.DirectInstaller:
+                    DirectInstaller.InstallApp(app);
+                    break;
+            }
         }
 
         private void availableApplicationsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
