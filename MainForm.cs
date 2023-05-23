@@ -22,7 +22,7 @@ namespace WindowsSetupTool
             // load from resource json file
             string resourcesFile = File.ReadAllText("Resources/apps.json");
             ApplicationSource[]? newApps = JsonConvert.DeserializeObject<ApplicationSource[]>(resourcesFile);
-            if (newApps != null ) { apps = newApps; };
+            if (newApps != null) { apps = newApps; };
         }
 
         private void RepopulateAppList()
