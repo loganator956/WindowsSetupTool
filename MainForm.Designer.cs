@@ -39,13 +39,13 @@
             toolStrip1 = new ToolStrip();
             installAllToolStripButton = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
+            exportListToolStripButton = new ToolStripButton();
             importListToolStripButton = new ToolStripButton();
+            groupBox2 = new GroupBox();
+            appInformationTextBox = new TextBox();
             statusStrip1 = new StatusStrip();
             appInstallToolStripProgressBar1 = new ToolStripProgressBar();
             appInstallToolStripStatusLabel1 = new ToolStripStatusLabel();
-            exportListToolStripButton = new ToolStripButton();
-            groupBox2 = new GroupBox();
-            appInformationTextBox = new TextBox();
             menuStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             applicationsTabPage.SuspendLayout();
@@ -55,8 +55,8 @@
             splitContainer1.SuspendLayout();
             groupBox1.SuspendLayout();
             toolStrip1.SuspendLayout();
-            statusStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -159,6 +159,15 @@
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(6, 25);
             // 
+            // exportListToolStripButton
+            // 
+            exportListToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            exportListToolStripButton.Image = (Image)resources.GetObject("exportListToolStripButton.Image");
+            exportListToolStripButton.ImageTransparentColor = Color.Magenta;
+            exportListToolStripButton.Name = "exportListToolStripButton";
+            exportListToolStripButton.Size = new Size(23, 22);
+            exportListToolStripButton.Text = "toolStripButton2";
+            // 
             // importListToolStripButton
             // 
             importListToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
@@ -167,6 +176,27 @@
             importListToolStripButton.Name = "importListToolStripButton";
             importListToolStripButton.Size = new Size(23, 22);
             importListToolStripButton.Text = "toolStripButton1";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(appInformationTextBox);
+            groupBox2.Dock = DockStyle.Fill;
+            groupBox2.Location = new Point(0, 0);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(438, 370);
+            groupBox2.TabIndex = 2;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Application Information";
+            // 
+            // appInformationTextBox
+            // 
+            appInformationTextBox.Dock = DockStyle.Fill;
+            appInformationTextBox.Location = new Point(3, 19);
+            appInformationTextBox.Multiline = true;
+            appInformationTextBox.Name = "appInformationTextBox";
+            appInformationTextBox.ScrollBars = ScrollBars.Vertical;
+            appInformationTextBox.Size = new Size(432, 348);
+            appInformationTextBox.TabIndex = 0;
             // 
             // statusStrip1
             // 
@@ -187,35 +217,6 @@
             appInstallToolStripStatusLabel1.Name = "appInstallToolStripStatusLabel1";
             appInstallToolStripStatusLabel1.Size = new Size(118, 17);
             appInstallToolStripStatusLabel1.Text = "toolStripStatusLabel1";
-            // 
-            // exportListToolStripButton
-            // 
-            exportListToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            exportListToolStripButton.Image = (Image)resources.GetObject("exportListToolStripButton.Image");
-            exportListToolStripButton.ImageTransparentColor = Color.Magenta;
-            exportListToolStripButton.Name = "exportListToolStripButton";
-            exportListToolStripButton.Size = new Size(23, 22);
-            exportListToolStripButton.Text = "toolStripButton2";
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(appInformationTextBox);
-            groupBox2.Dock = DockStyle.Fill;
-            groupBox2.Location = new Point(0, 0);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(438, 370);
-            groupBox2.TabIndex = 2;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Application Information";
-            // 
-            // appInformationTextBox
-            // 
-            appInformationTextBox.Dock = DockStyle.Fill;
-            appInformationTextBox.Location = new Point(3, 19);
-            appInformationTextBox.Multiline = true;
-            appInformationTextBox.Name = "appInformationTextBox";
-            appInformationTextBox.Size = new Size(432, 348);
-            appInformationTextBox.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -241,10 +242,10 @@
             groupBox1.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            statusStrip1.ResumeLayout(false);
-            statusStrip1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
