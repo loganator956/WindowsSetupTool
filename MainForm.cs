@@ -71,5 +71,22 @@ namespace WindowsSetupTool
             appInstallToolStripStatusLabel1.Text = "Completed installing apps";
             appInstallToolStripProgressBar1.Value = 100;
         }
+
+        private void availableApplicationsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplicationSource selected = (ApplicationSource)availableApplicationsCheckedListBox.SelectedItem;
+            ProcessStartInfo inf = new ProcessStartInfo("winget.exe");
+            inf.ArgumentList.Add("show");
+            inf.ArgumentList.Add(selected.AppIDs[0]);
+            inf.UseShellExecute = false;
+            inf.RedirectStandardOutput = true;
+            Process winget = new Process();
+            winget.StartInfo = inf;
+            winget.Start();
+            StreamReader reader = winget.StandardOutput;
+            string output = reader.ReadToEnd();
+            appInformationTextBox.Text = output;
+            winget.WaitForExit();
+        }
     }
 }
