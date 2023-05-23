@@ -1,13 +1,12 @@
 using Newtonsoft.Json;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Net;
 
 namespace WindowsSetupTool
 {
     public partial class MainForm : Form
     {
-        ApplicationSource[] apps = new ApplicationSource[0];
+        ApplicationSource[] apps = Array.Empty<ApplicationSource>();
         public MainForm()
         {
             InitializeComponent();
