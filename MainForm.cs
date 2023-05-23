@@ -1,6 +1,8 @@
 using Newtonsoft.Json;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Net;
+using System.Security.Policy;
 using WindowsSetupTool.Installers;
 
 namespace WindowsSetupTool
@@ -94,6 +96,83 @@ namespace WindowsSetupTool
         private void availableApplicationsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             appInformationTextBox.Text = Winget.GetAppInfo(((ApplicationSource)availableApplicationsCheckedListBox.SelectedItem).AppID);
+        }
+
+        private void importListToolStripButton_Click(object sender, EventArgs e)
+        {
+            ImportMenu menu = new ImportMenu();
+            DialogResult res = menu.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                if (menu.IsUrl)
+                {
+                    // download the url
+                    ApplySelectionFromList(DownloadURL(menu.Url).Split('\n'));
+                }
+                else
+                {
+                    ApplySelectionFromList(File.ReadAllLines(menu.FilePath));
+                }
+            }
+        }
+
+        private string DownloadURL(string url)
+        {
+            using (var client = new HttpClient())
+            {
+                using (var s = client.GetStreamAsync(url))
+                {
+                    using (var stream = new StreamReader(s.Result))
+                    {
+                        string result = stream.ReadToEnd();
+                        return result;
+                    }
+                }
+            }
+        }
+
+        private void ApplySelectionFromList(string[] list)
+        {
+            for (int i = 0; i < availableApplicationsCheckedListBox.Items.Count; i++)
+            {
+                availableApplicationsCheckedListBox.SetItemChecked(i, false);
+            }
+
+            foreach (string appID in list)
+            {
+                foreach (ApplicationSource app in apps)
+                {
+                    if (app.AppID == appID)
+                    {
+                        // found app to select, select it
+                        availableApplicationsCheckedListBox.SetItemChecked(GetAppIndex(app), true);
+                    }
+                }
+            }
+        }
+
+        private int GetAppIndex(ApplicationSource app)
+        {
+            int index = 0;
+            foreach (ApplicationSource package in apps)
+            {
+                if (package.AppID == app.AppID)
+                {
+                    return index;
+                }
+                index++;
+            }
+            return -1;
+        }
+
+        private void exportListToolStripButton_Click(object sender, EventArgs e)
+        {
+            List<string> appIDs = new List<string>();
+            foreach(ApplicationSource app in availableApplicationsCheckedListBox.CheckedItems)
+            {
+                appIDs.Add(app.AppID);
+            }
+            File.WriteAllLines("Exported App List.txt", appIDs.ToArray());
         }
     }
 }

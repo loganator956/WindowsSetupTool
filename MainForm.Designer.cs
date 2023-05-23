@@ -166,7 +166,8 @@
             exportListToolStripButton.ImageTransparentColor = Color.Magenta;
             exportListToolStripButton.Name = "exportListToolStripButton";
             exportListToolStripButton.Size = new Size(23, 22);
-            exportListToolStripButton.Text = "toolStripButton2";
+            exportListToolStripButton.Text = "Export List";
+            exportListToolStripButton.Click += exportListToolStripButton_Click;
             // 
             // importListToolStripButton
             // 
@@ -175,7 +176,8 @@
             importListToolStripButton.ImageTransparentColor = Color.Magenta;
             importListToolStripButton.Name = "importListToolStripButton";
             importListToolStripButton.Size = new Size(23, 22);
-            importListToolStripButton.Text = "toolStripButton1";
+            importListToolStripButton.Text = "Import List";
+            importListToolStripButton.Click += importListToolStripButton_Click;
             // 
             // groupBox2
             // 
