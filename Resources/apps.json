@@ -1,255 +1,342 @@
 ﻿[
   {
-    "AppIDs": [
-      "7zip.7zip"
-    ],
-    "AppName": "7 Zip"
+    "AppName": "7-Zip",
+    "AppID": "7zip.7zip",
+    "Type": 0,
+    "Dependencies": [
+    ]
   },
   {
-    "AppIDs": [
-      "Discord.Discord"
-    ],
-    "AppName": "Discord"
+    "AppName": "Discord",
+    "AppID": "Discord.Discord",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Git.Git"
-    ],
-    "AppName": "Git"
+    "AppName": "KeePassXC",
+    "AppID": "KeePassXCTeam.KeePassXC",
+    "Type": 0,
+    "Dependencies": [
+      {
+        "AppName": "Microsoft Visual C++ 2015-2022 Redistributable (x64)",
+        "AppID": "Microsoft.VCRedist.2015+.x64",
+        "Type": 0,
+        "Dependencies": []
+      }
+    ]
   },
   {
-    "AppIDs": [
-      "GitHub.GitHubDesktop"
-    ],
-    "AppName": "GitHub Desktop"
+    "AppName": "Git",
+    "AppID": "Git.Git",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Google.Chrome"
-    ],
-    "AppName": "Google Chrome"
+    "AppName": "GitHub Desktop",
+    "AppID": "GitHub.GitHubDesktop",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "KeePassXCTeam.KeePassXC",
-      "Microsoft.VCRedist.2015+.x64"
-    ],
-    "AppName": "KeePassXC"
+    "AppName": "Google Chrome",
+    "AppID": "Google.Chrome",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Microsoft.OneDrive"
-    ],
-    "AppName": "OneDrive"
+    "AppName": "OneDrive",
+    "AppID": "Microsoft.OneDrive",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Microsoft.PowerToys"
-    ],
-    "AppName": "Microsoft PowerToys"
+    "AppName": "Microsoft PowerToys",
+    "AppID": "Microsoft.PowerToys",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Microsoft.VisualStudio.2022.Community"
-    ],
-    "AppName": "Visual Studio 2022 Community"
+    "AppName": "Visual Studio 2022 Community",
+    "AppID": "Microsoft.VisualStudio.2022.Community",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Microsoft.VisualStudioCode"
-    ],
-    "AppName": "VS Code"
+    "AppName": "VS Code",
+    "AppID": "Microsoft.VisualStudioCode",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Mozilla.Firefox"
-    ],
-    "AppName": "Firefox"
+    "AppName": "Firefox",
+    "AppID": "Mozilla.Firefox",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "RedHat.VirtViewer"
-    ],
-    "AppName": "Virt Viewer"
+    "AppName": "Red Hat Virt Viewer",
+    "AppID": "RedHat.VirtViewer",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "SyncTrayzor.SyncTrayzor"
-    ],
-    "AppName": "SyncTrayzor"
+    "AppName": "SyncTrayzor",
+    "AppID": "SyncTrayzor.SyncTrayzor",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Unity.UnityHub"
-    ],
-    "AppName": "Unity Hub"
+    "AppName": "Unity Hub",
+    "AppID": "Unity.UnityHub",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Valve.Steam"
-    ],
-    "AppName": "Steam"
+    "AppName": "Steam",
+    "AppID": "Valve.Steam",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Opera.Opera"
-    ],
-    "AppName": "Opera"
+    "AppName": "Opera",
+    "AppID": "Opera.Opera",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Microsoft.Edge"
-    ],
-    "AppName": "Microsoft Edge"
+    "AppName": "Microsoft Edge",
+    "AppID": "Microsoft.Edge",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "qBittorrent.qBittorrent"
-    ],
-    "AppName": "qBittorrent"
+    "AppName": "qBittorrent",
+    "AppID": "qBittorrent.qBittorrent",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Mozilla.Thunderbird"
-    ],
-    "AppName": "Thunderbird"
+    "AppName": "Thunderbird",
+    "AppID": "Mozilla.Thunderbird",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "VideoLAN.VLC"
-    ],
-    "AppName": "VLC"
+    "AppName": "VLC",
+    "AppID": "VideoLAN.VLC",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "EclipseAdoptium.Temurin.8.JRE"
-    ],
-    "AppName": "Eclipse Temurin JRE with Hotspot 8"
+    "AppName": "Eclipse Temurin JRE with Hotspot 8",
+    "AppID": "EclipseAdoptium.Temurin.8.JRE",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "EclipseAdoptium.Temurin.11.JRE"
-    ],
-    "AppName": "Eclipse Temurin JRE with Hotspot 11"
+    "AppName": "Eclipse Temurin JRE with Hotspot 11",
+    "AppID": "EclipseAdoptium.Temurin.11.JRE",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "EclipseAdoptium.Temurin.16.JRE"
-    ],
-    "AppName": "Eclipse Temurin JRE with Hotspot 16"
+    "AppName": "Eclipse Temurin JRE with Hotspot 16",
+    "AppID": "EclipseAdoptium.Temurin.16.JRE",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "EclipseAdoptium.Temurin.17.JRE"
-    ],
-    "AppName": "Eclipse Temurin JRE with Hotspot 17"
+    "AppName": "Eclipse Temurin JRE with Hotspot 17",
+    "AppID": "EclipseAdoptium.Temurin.17.JRE",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "EclipseAdoptium.Temurin.18.JRE"
-    ],
-    "AppName": "Eclipse Temurin JRE with Hotspot 18"
+    "AppName": "Eclipse Temurin JRE with Hotspot 18",
+    "AppID": "EclipseAdoptium.Temurin.18.JRE",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "GIMP.GIMP"
-    ],
-    "AppName": "GIMP"
+    "AppName": "GIMP",
+    "AppID": "GIMP.GIMP",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "dotPDNLLC.paintdotnet"
-    ],
-    "AppName": "Paint.NET"
+    "AppName": "Paint.NET",
+    "AppID": "dotPDNLLC.paintdotnet",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "BlenderFoundation.Blender"
-    ],
-    "AppName": "Blender"
+    "AppName": "Blender",
+    "AppID": "BlenderFoundation.Blender",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Notepad++.Notepad++"
-    ],
-    "AppName": "Notepad++"
+    "AppName": "Notepad++",
+    "AppID": "Notepad++.Notepad++",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "TheDocumentFoundation.LibreOffice"
-    ],
-    "AppName": "LibreOffice"
+    "AppName": "LibreOffice",
+    "AppID": "TheDocumentFoundation.LibreOffice",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Microsoft.Office"
-    ],
-    "AppName": "Microsoft Office"
+    "AppName": "Microsoft Office",
+    "AppID": "Microsoft.Office",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Google.Drive"
-    ],
-    "AppName": "Google Drive"
+    "AppName": "Google Drive",
+    "AppID": "Google.Drive",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Parsec.Parsec"
-    ],
-    "AppName": "Parsec"
+    "AppName": "Parsec",
+    "AppID": "Parsec.Parsec",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "TeamViewer.TeamViewer"
-    ],
-    "AppName": "TeamViewer"
+    "AppName": "TeamViewer",
+    "AppID": "TeamViewer.TeamViewer",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "WinDirStat.WinDirStat"
-    ],
-    "AppName": "WinDirStat"
+    "AppName": "WinDirStat",
+    "AppID": "WinDirStat.WinDirStat",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "OBSProject.OBSStudio"
-    ],
-    "AppName": "OBS"
+    "AppName": "OBS Studio",
+    "AppID": "OBSProject.OBSStudio",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "GOG.Galaxy"
-    ],
-    "AppName": "GOG Galaxy"
+    "AppName": "GOG Galaxy",
+    "AppID": "GOG.Galaxy",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "ElectronicArts.EADesktop"
-    ],
-    "AppName": "EA Desktop"
+    "AppName": "EA Desktop",
+    "AppID": "ElectronicArts.EADesktop",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "Ubisoft.Connect"
-    ],
-    "AppName": "Ubisoft Connect"
+    "AppName": "Ubisoft Connect",
+    "AppID": "Ubisoft.Connect",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "EpicGames.EpicGamesLauncher"
-    ],
-    "AppName": "Epic Games Launcher"
+    "AppName": "Epic Games Launcher",
+    "AppID": "EpicGames.EpicGamesLauncher",
+    "Type": 0,
+    "Dependencies": []
   },
   {
-    "AppIDs": [
-      "ItchIo.Itch"
-    ],
-    "AppName": "itch.io"
+    "AppName": "itch.io",
+    "AppID": "ItchIo.Itch",
+    "Type": 0,
+    "Dependencies": []
   },
   {
     "AppName": "digiKam",
-    "AppIDs": [
-      "KDE.digikam"
-    ]
+    "AppID": "KDE.digikam",
+    "Type": 0,
+    "Dependencies": []
+  },
+  {
+    "AppName": ".NET SDK 7",
+    "AppID": "Microsoft.DotNet.SDK.7",
+    "Type": 0,
+    "Dependencies": []
+  },
+  {
+    "AppName": ".NET SDK 6",
+    "AppID": "Microsoft.DotNet.SDK.6",
+    "Type": 0,
+    "Dependencies": []
+  },
+  {
+    "AppName": ".NET SDK 5",
+    "AppID": "Microsoft.DotNet.SDK.5",
+    "Type": 0,
+    "Dependencies": []
+  },
+  {
+    "AppName": "Amazon Games",
+    "AppID": "Amazon.Games",
+    "Type": 0,
+    "Dependencies": []
+  },
+  {
+    "AppName": "Xbox App",
+    "AppID": "9MV0B5HZVK9Z",
+    "Type": 0,
+    "Dependencies": []
+  },
+  {
+    "AppName": "Minecraft Launcher",
+    "AppID": "Mojang.MinecraftLauncher",
+    "Type": 0,
+    "Dependencies": []
+  },
+  {
+    "AppName": "CurseForge",
+    "AppID": "Overwolf.CurseForge",
+    "Type": 0,
+    "Dependencies": []
+  },
+  {
+    "AppName": "Valorant (EU)",
+    "AppID": "RiotGames.Valorant.EU",
+    "Type": 0,
+    "Dependencies": []
+  },
+  {
+    "AppName": "Rockstar Games Launcher",
+    "AppID": "https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe",
+    "TempFileName": "Rockstar-Games-Launcher.exe",
+    "Type": 1,
+    "Dependencies": []
+  },
+  {
+    "AppName": "Battle.net",
+    "AppID": "https://eu.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe&id=undefined",
+    "Type": 1,
+    "TempFileName": "Battle.net-Setup.exe",
+    "Dependencies": []
+  },
+  {
+    "AppName": "",
+    "AppID": "",
+    "Type": 0,
+    "Dependencies": []
+  },
+  {
+    "AppName": "",
+    "AppID": "",
+    "Type": 0,
+    "Dependencies": []
+  },
+  {
+    "AppName": "",
+    "AppID": "",
+    "Type": 0,
+    "Dependencies": []
   }
 ]
