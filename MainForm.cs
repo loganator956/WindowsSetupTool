@@ -108,6 +108,7 @@ namespace WindowsSetupTool
                                 installer.WaitForExit();
                             }
                         }
+                        File.Delete(fileName);
                         break;
                 }
             }
