@@ -1,6 +1,7 @@
 using Newtonsoft.Json;
 using System.ComponentModel;
 using System.Diagnostics;
+using WindowsSetupTool.Installers;
 
 namespace WindowsSetupTool
 {
@@ -58,16 +59,7 @@ namespace WindowsSetupTool
                     case InstallType.Winget:
                         foreach (string appID in currentApp.GetIDs())
                         {
-                            ProcessStartInfo wingetInfo = new ProcessStartInfo("winget.exe");
-                            wingetInfo.ArgumentList.Add("install");
-                            wingetInfo.ArgumentList.Add("-e");
-                            wingetInfo.ArgumentList.Add(appID);
-
-                            Process wingetProc = new Process();
-                            wingetProc.StartInfo = wingetInfo;
-                            wingetProc.Start();
-                            // TODO: implement multi-threading and update the GUI with any new things (BackgroundWorker?)
-                            wingetProc.WaitForExit();
+                            Winget.InstallApp(appID);
                             Debug.WriteLine($"Installed {appID}");
                         }
                         break;
