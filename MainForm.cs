@@ -17,7 +17,6 @@ namespace WindowsSetupTool
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Winget.LoadInfoCache();
             LoadApps();
             RepopulateAppList();
         }
@@ -95,7 +94,19 @@ namespace WindowsSetupTool
 
         private void availableApplicationsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            appInformationTextBox.Text = Winget.GetAppInfo(((ApplicationSource)availableApplicationsCheckedListBox.SelectedItem).AppID);
+            //appInformationTextBox.Text = Winget.GetAppInfo(((ApplicationSource)availableApplicationsCheckedListBox.SelectedItem).AppID);
+            BackgroundWorker worker = Winget.GetAppInfoInBackground(((ApplicationSource)availableApplicationsCheckedListBox.SelectedItem).AppID);
+            worker.RunWorkerCompleted += WingetGetAppInfoWorker_RunWorkerCompleted;
+            //worker.RunWorkerAsync();
+        }
+
+        private void WingetGetAppInfoWorker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)
+        {
+            string? result = e.Result as string;
+            if (result != null)
+            {
+                appInformationTextBox.Text = result;
+            }
         }
 
         private void importListToolStripButton_Click(object sender, EventArgs e)
@@ -180,7 +191,7 @@ namespace WindowsSetupTool
                 }
                 File.WriteAllLines(dialog.FileName, appIDs.ToArray());
             }
-            
+
         }
     }
 }

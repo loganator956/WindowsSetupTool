@@ -38,8 +38,8 @@
             toolStrip1 = new ToolStrip();
             installAllToolStripButton = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
-            exportListToolStripButton = new ToolStripButton();
             importListToolStripButton = new ToolStripButton();
+            exportListToolStripButton = new ToolStripButton();
             groupBox2 = new GroupBox();
             appInformationTextBox = new TextBox();
             statusStrip1 = new StatusStrip();
@@ -158,16 +158,6 @@
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(6, 25);
             // 
-            // exportListToolStripButton
-            // 
-            exportListToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            exportListToolStripButton.Image = Properties.Resources.baseline_save_alt_black_24dp;
-            exportListToolStripButton.ImageTransparentColor = Color.Magenta;
-            exportListToolStripButton.Name = "exportListToolStripButton";
-            exportListToolStripButton.Size = new Size(23, 22);
-            exportListToolStripButton.Text = "Export List";
-            exportListToolStripButton.Click += exportListToolStripButton_Click;
-            // 
             // importListToolStripButton
             // 
             importListToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
@@ -177,6 +167,16 @@
             importListToolStripButton.Size = new Size(23, 22);
             importListToolStripButton.Text = "Import List";
             importListToolStripButton.Click += importListToolStripButton_Click;
+            // 
+            // exportListToolStripButton
+            // 
+            exportListToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            exportListToolStripButton.Image = Properties.Resources.baseline_save_alt_black_24dp;
+            exportListToolStripButton.ImageTransparentColor = Color.Magenta;
+            exportListToolStripButton.Name = "exportListToolStripButton";
+            exportListToolStripButton.Size = new Size(23, 22);
+            exportListToolStripButton.Text = "Export List";
+            exportListToolStripButton.Click += exportListToolStripButton_Click;
             // 
             // groupBox2
             // 
