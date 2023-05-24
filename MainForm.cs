@@ -17,7 +17,6 @@ namespace WindowsSetupTool
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Winget.LoadInfoCache();
             LoadApps();
             RepopulateAppList();
         }
