@@ -38,4 +38,6 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties resources_4apps_1json__JsonSchema="https://raw.githubusercontent.com/loganator956/WindowsSetupTool/json-schema/apps-schema.json#" /></VisualStudio></ProjectExtensions>
+
 </Project>

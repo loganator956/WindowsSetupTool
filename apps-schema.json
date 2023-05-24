@@ -20,7 +20,6 @@
         "Dependencies": {
           "type": "array",
           "items": {
-            "type": "object",
             "$ref": "#"
           }
         }
@@ -29,8 +28,7 @@
         "AppName",
         "AppID",
         "InstallID",
-        "Type",
-        "Dependencies"
+        "Type"
       ]
     }
   ]
