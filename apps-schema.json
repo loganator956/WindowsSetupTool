@@ -1,5 +1,4 @@
 ﻿{
-  "$schema": "https://raw.githubusercontent.com/loganator956/WindowsSetupTool/json-schema/apps-schema.json",
   "type": "array",
   "items": [
     {
