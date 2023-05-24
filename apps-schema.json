@@ -19,7 +19,10 @@
         },
         "Dependencies": {
           "type": "array",
-          "items": {}
+          "items": {
+            "type": "object",
+            "$ref": "#"
+          }
         }
       },
       "required": [
