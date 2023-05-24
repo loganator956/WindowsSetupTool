@@ -1,0 +1,35 @@
+﻿{
+  "$schema": "https://github.com/loganator956/WindowsSetupTool/apps-schema.json",
+  "$id": "https://github.com/loganator956/WindowsSetupTool/apps-schema.json",
+  "title": "App Source",
+  "description": "Application sources",
+  "type": "object",
+  "properties": {
+    "AppName": {
+      "description": "The friendly name of the app displayed in GUI",
+      "type": "string"
+    },
+    "AppID": {
+      "description": "Unique ID for the app",
+      "type": "string"
+    },
+    "InstallID": {
+      "description": "Identifier used in installing. (URL or package ID)",
+      "type": "string"
+    },
+    "Type": {
+      "description": "Type of install method to use",
+      "type": "integer",
+      "minimum": "0",
+      "maximum": "1"
+    },
+    "TempFileName": {
+      "description": "Temporary file name of installer files that are downloaded",
+      "type": "string"
+    },
+    "Dependencies": {
+      "description": "Any dependencies required"
+    }
+  },
+  "required": [ "AppName", "AppID", "InstallID", "Type" ]
+}
