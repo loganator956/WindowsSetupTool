@@ -52,6 +52,7 @@ namespace WindowsSetupTool
                 appInstallToolStripStatusLabel1.Text = $"Installed: {installQueue[i]}";
                 appInstallToolStripProgressBar1.Value = i / apps.Length;
             }
+            // re-enable install button
             installAllToolStripButton.Enabled = true;
             appInstallToolStripStatusLabel1.Text = "Completed installing apps";
             appInstallToolStripProgressBar1.Value = 100;
