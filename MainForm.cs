@@ -46,8 +46,8 @@ namespace WindowsSetupTool
 
             for (int i = 0; i < installQueue.Count; i++)
             {
-                ApplicationSource currentApp = installQueue[i];
-                InstallApp(currentApp);
+                InstallApp(installQueue[i]);
+                // update status strip
                 appInstallToolStripStatusLabel1.Text = $"Installing: {currentApp.AppName}";
                 appInstallToolStripProgressBar1.Value = i / apps.Length;
             }
