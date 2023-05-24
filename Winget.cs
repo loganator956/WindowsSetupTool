@@ -6,7 +6,6 @@ namespace WindowsSetupTool.Installers
 {
     internal static class Winget
     {
-        private const string cacheName = "wingetcache.json";
         static List<WingetAppInfo> infoCache = new List<WingetAppInfo>();
 
         public static void InstallApp(string appID)
