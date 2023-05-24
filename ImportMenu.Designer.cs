@@ -34,6 +34,7 @@
             radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
             localFilePathTextBox = new TextBox();
+            localFileBrowserButton = new Button();
             SuspendLayout();
             // 
             // urlTextBox
@@ -92,15 +93,26 @@
             // 
             localFilePathTextBox.Location = new Point(92, 41);
             localFilePathTextBox.Name = "localFilePathTextBox";
-            localFilePathTextBox.Size = new Size(352, 23);
+            localFilePathTextBox.Size = new Size(315, 23);
             localFilePathTextBox.TabIndex = 6;
             localFilePathTextBox.TextChanged += localFilePathTextBox_TextChanged;
+            // 
+            // localFileBrowserButton
+            // 
+            localFileBrowserButton.Location = new Point(413, 42);
+            localFileBrowserButton.Name = "localFileBrowserButton";
+            localFileBrowserButton.Size = new Size(31, 23);
+            localFileBrowserButton.TabIndex = 7;
+            localFileBrowserButton.Text = "...";
+            localFileBrowserButton.UseVisualStyleBackColor = true;
+            localFileBrowserButton.Click += localFileBrowserButton_Click;
             // 
             // ImportMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(456, 100);
+            Controls.Add(localFileBrowserButton);
             Controls.Add(localFilePathTextBox);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
@@ -123,5 +135,6 @@
         private RadioButton radioButton1;
         private RadioButton radioButton2;
         private TextBox localFilePathTextBox;
+        private Button localFileBrowserButton;
     }
 }

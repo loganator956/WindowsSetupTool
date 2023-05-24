@@ -49,5 +49,14 @@ namespace WindowsSetupTool
         {
             FilePath = localFilePathTextBox.Text;
         }
+
+        private void localFileBrowserButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.CheckFileExists = true;
+            dialog.Multiselect = false;
+            if (dialog.ShowDialog() == DialogResult.OK)
+                FilePath = localFilePathTextBox.Text = dialog.FileName;
+        }
     }
 }
