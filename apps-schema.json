@@ -1,6 +1,6 @@
 ﻿{
-  "$schema": "https://github.com/loganator956/WindowsSetupTool/apps-schema.json",
-  "$id": "https://github.com/loganator956/WindowsSetupTool/apps-schema.json",
+  "$schema": "https://raw.githubusercontent.com/loganator956/WindowsSetupTool/json-schema/apps-schema.json",
+  "$id": "https://raw.githubusercontent.com/loganator956/WindowsSetupTool/json-schema/apps-schema.json",
   "title": "App Source",
   "description": "Application sources",
   "type": "object",
