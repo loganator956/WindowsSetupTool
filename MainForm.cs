@@ -1,8 +1,5 @@
 using Newtonsoft.Json;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Net;
-using System.Security.Policy;
 using WindowsSetupTool.Installers;
 
 namespace WindowsSetupTool
@@ -15,66 +12,59 @@ namespace WindowsSetupTool
             InitializeComponent();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Loads ApplicationSource objects from resources directory
+        /// </summary>
+        private void LoadAppSources()
         {
-            LoadApps();
-            RepopulateAppList();
-        }
-
-        private void LoadApps()
-        {
-            // load from resource json file
             string resourcesFile = File.ReadAllText("Resources/apps.json");
             ApplicationSource[]? newApps = JsonConvert.DeserializeObject<ApplicationSource[]>(resourcesFile);
             if (newApps != null) { apps = newApps; };
+
+            RepopulateAppList();
         }
 
+        /// <summary>
+        /// Updates the checked list box with the app sources
+        /// </summary>
         private void RepopulateAppList()
         {
             availableApplicationsCheckedListBox.Items.Clear();
             for (int i = 0; i < apps.Length; i++)
-            {
                 availableApplicationsCheckedListBox.Items.Add(apps[i]);
-            }
-        }
-
-        private void installAllToolStripButton_Click(object sender, EventArgs e)
-        {
-            installAllToolStripButton.Enabled = false;
-
-            var sel = availableApplicationsCheckedListBox.CheckedItems;
-
-            InstallApps(sel.Cast<ApplicationSource>().ToArray<ApplicationSource>());
         }
 
         private void InstallApps(ApplicationSource[] apps)
         {
             List<ApplicationSource> installQueue = new List<ApplicationSource>();
 
+            // gather apps + dependencies
             foreach (ApplicationSource app in apps)
             {
-                installQueue.AddRange(GatherSources(app));
+                installQueue.AddRange(GatherSourcesRecursively(app));
             }
 
+            // iterate through each app and install them
             for (int i = 0; i < installQueue.Count; i++)
             {
-                ApplicationSource currentApp = installQueue[i];
-                InstallApp(currentApp);
-                appInstallToolStripStatusLabel1.Text = $"Installing: {currentApp.AppName}";
+                InstallApp(installQueue[i]);
+                // update status strip
+                appInstallToolStripStatusLabel1.Text = $"Installed: {installQueue[i]}";
                 appInstallToolStripProgressBar1.Value = i / apps.Length;
             }
+            // re-enable install button
             installAllToolStripButton.Enabled = true;
             appInstallToolStripStatusLabel1.Text = "Completed installing apps";
             appInstallToolStripProgressBar1.Value = 100;
         }
 
-        private List<ApplicationSource> GatherSources(ApplicationSource parent)
+        private List<ApplicationSource> GatherSourcesRecursively(ApplicationSource parent)
         {
             List<ApplicationSource> applicationSources = new List<ApplicationSource>();
             applicationSources.Add(parent);
             foreach (ApplicationSource source in parent.Dependencies)
             {
-                applicationSources.AddRange(GatherSources(source));
+                applicationSources.AddRange(GatherSourcesRecursively(source));
             }
             return applicationSources;
         }
@@ -92,42 +82,12 @@ namespace WindowsSetupTool
             }
         }
 
-        private void availableApplicationsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //appInformationTextBox.Text = Winget.GetAppInfo(((ApplicationSource)availableApplicationsCheckedListBox.SelectedItem).AppID);
-            BackgroundWorker worker = Winget.GetAppInfoInBackground(((ApplicationSource)availableApplicationsCheckedListBox.SelectedItem).AppID);
-            worker.RunWorkerCompleted += WingetGetAppInfoWorker_RunWorkerCompleted;
-            //worker.RunWorkerAsync();
-        }
-
-        private void WingetGetAppInfoWorker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)
-        {
-            string? result = e.Result as string;
-            if (result != null)
-            {
-                appInformationTextBox.Text = result;
-            }
-        }
-
-        private void importListToolStripButton_Click(object sender, EventArgs e)
-        {
-            ImportMenu menu = new ImportMenu();
-            DialogResult res = menu.ShowDialog();
-            if (res == DialogResult.OK)
-            {
-                if (menu.IsUrl)
-                {
-                    // download the url
-                    ApplySelectionFromList(DownloadURL(menu.Url).Split('\n'));
-                }
-                else
-                {
-                    ApplySelectionFromList(File.ReadAllLines(menu.FilePath));
-                }
-            }
-        }
-
-        private string DownloadURL(string url)
+        /// <summary>
+        /// Downloads string stream from a URL
+        /// </summary>
+        /// <param name="url">URL of the text file</param>
+        /// <returns>String contents of the text file</returns>
+        private string DownloadStringFromURL(string url)
         {
             using (var client = new HttpClient())
             {
@@ -142,38 +102,72 @@ namespace WindowsSetupTool
             }
         }
 
+        /// <summary>
+        /// Checks the apps in the CheckedListBox according to a list of AppIDs
+        /// </summary>
+        /// <param name="list">Array containing AppIDs to check</param>
         private void ApplySelectionFromList(string[] list)
         {
+            // clear checked items
             for (int i = 0; i < availableApplicationsCheckedListBox.Items.Count; i++)
-            {
                 availableApplicationsCheckedListBox.SetItemChecked(i, false);
-            }
 
+            // check the app in the list
             foreach (string appID in list)
-            {
-                foreach (ApplicationSource app in apps)
-                {
-                    if (app.AppID == appID)
-                    {
-                        // found app to select, select it
-                        availableApplicationsCheckedListBox.SetItemChecked(GetAppIndex(app), true);
-                    }
-                }
-            }
+                availableApplicationsCheckedListBox.SetItemChecked(GetAppSourceArrayIndex(appID), true);
         }
 
-        private int GetAppIndex(ApplicationSource app)
+        /// <summary>
+        /// Get the index for an ApplicationSource in the ApplicationSource array
+        /// </summary>
+        /// <param name="appID">The app to find the index for</param>
+        /// <returns>Corresponding index for the application source. If cannot find, returns -1</returns>
+        private int GetAppSourceArrayIndex(string appID)
         {
             int index = 0;
             foreach (ApplicationSource package in apps)
             {
-                if (package.AppID == app.AppID)
+                if (package.AppID == appID)
                 {
                     return index;
                 }
                 index++;
             }
             return -1;
+        }
+
+        #region Event Handlers
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            LoadAppSources();
+        }
+
+        private void installAllToolStripButton_Click(object sender, EventArgs e)
+        {
+            installAllToolStripButton.Enabled = false;
+
+            var sel = availableApplicationsCheckedListBox.CheckedItems;
+
+            InstallApps(sel.Cast<ApplicationSource>().ToArray<ApplicationSource>());
+        }
+
+        private void availableApplicationsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BackgroundWorker worker = Winget.GetAppInfoInBackground(((ApplicationSource)availableApplicationsCheckedListBox.SelectedItem).AppID);
+            worker.RunWorkerCompleted += WingetGetAppInfoWorker_RunWorkerCompleted;
+        }
+
+        private void importListToolStripButton_Click(object sender, EventArgs e)
+        {
+            ImportMenu menu = new ImportMenu();
+            DialogResult res = menu.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                if (menu.IsUrl)
+                    ApplySelectionFromList(DownloadStringFromURL(menu.Url).Split('\n'));
+                else
+                    ApplySelectionFromList(File.ReadAllLines(menu.FilePath));
+            }
         }
 
         private void exportListToolStripButton_Click(object sender, EventArgs e)
@@ -193,5 +187,15 @@ namespace WindowsSetupTool
             }
 
         }
+
+        private void WingetGetAppInfoWorker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)
+        {
+            string? result = e.Result as string;
+            if (result != null)
+            {
+                appInformationTextBox.Text = result;
+            }
+        }
+        #endregion
     }
 }

@@ -1,26 +1,41 @@
-﻿using Newtonsoft.Json;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Diagnostics;
 
 namespace WindowsSetupTool.Installers
 {
     internal static class Winget
     {
-        private const string cacheName = "wingetcache.json";
+        /// <summary>
+        /// Caches winget package info for quicker access
+        /// </summary>
         static List<WingetAppInfo> infoCache = new List<WingetAppInfo>();
 
+        /// <summary>
+        /// Installs the winget package
+        /// </summary>
+        /// <param name="appID">Winget package ID to install</param>
         public static void InstallApp(string appID)
         {
             RunOperation("install", appID);
         }
 
+        /// <summary>
+        /// Uninstalls the winget package
+        /// </summary>
+        /// <param name="appID">Winget package ID to uninstall</param>
         public static void RemoveApp(string appID)
         {
             RunOperation("uninstall", appID);
         }
 
-        public static string GetAppInfo(string appID)
+        /// <summary>
+        /// Runs the winget show command to get info about package
+        /// </summary>
+        /// <param name="appID">Winget package ID to get information about</param>
+        /// <returns>Output from winget show command</returns>
+        private static string GetAppInfo(string appID)
         {
+            // check cache
             foreach(var app in infoCache)
             {
                 if (app.AppID == appID)
@@ -50,6 +65,11 @@ namespace WindowsSetupTool.Installers
             return output;
         }
 
+        /// <summary>
+        /// Finds the winget package information in a BackgroundWorker
+        /// </summary>
+        /// <param name="appID">Winget package ID to find information about</param>
+        /// <returns>Reference to the BackgroundWorker which is running the command</returns>
         public static BackgroundWorker GetAppInfoInBackground(string appID)
         {
             BackgroundWorker worker = new BackgroundWorker();
@@ -58,19 +78,11 @@ namespace WindowsSetupTool.Installers
             return worker;
         }
 
-        private static void AppInfoBackgroundWorker_DoWork(object? sender, DoWorkEventArgs e)
-        {
-            string? appID = e.Argument as string;
-            if (appID != null)
-            {
-                e.Result = GetAppInfo(appID);
-            }
-            else
-            {
-                e.Result = null;
-            }
-        }
-
+        /// <summary>
+        /// Run the winget operation
+        /// </summary>
+        /// <param name="operation">Which operation to run</param>
+        /// <param name="appID">Winget package ID to run specified operation on</param>
         private static void RunOperation(string operation, string appID)
         {
             ProcessStartInfo wingetInfo = new ProcessStartInfo("winget.exe");
@@ -84,5 +96,16 @@ namespace WindowsSetupTool.Installers
 
             wingetProc.WaitForExit();
         }
+
+        #region Event Handlers
+        private static void AppInfoBackgroundWorker_DoWork(object? sender, DoWorkEventArgs e)
+        {
+            string? appID = e.Argument as string;
+            if (appID != null)
+                e.Result = GetAppInfo(appID);
+            else
+                e.Result = null;
+        }
+        #endregion
     }
 }
