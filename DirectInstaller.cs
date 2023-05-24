@@ -7,11 +7,11 @@ namespace WindowsSetupTool.Installers
     {
         public static void InstallApp(ApplicationSource currentApp)
         {
-            string fileName = Path.Combine("temp", (currentApp.TempFileName != null ? currentApp.TempFileName : Path.GetFileName(currentApp.AppID)));
+            string fileName = Path.Combine("temp", (currentApp.TempFileName != null ? currentApp.TempFileName : Path.GetFileName(currentApp.InstallID)));
             if (!Directory.Exists("temp"))
                 Directory.CreateDirectory("temp");
 
-            DownloadApp(fileName, currentApp.AppID);
+            DownloadApp(fileName, currentApp.InstallID);
 
             ProcessStartInfo dInfo = new ProcessStartInfo(fileName);
 
