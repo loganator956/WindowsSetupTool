@@ -52,6 +52,8 @@ namespace WindowsSetupTool.Installers
             inf.ArgumentList.Add(appID);
             inf.UseShellExecute = false;
             inf.RedirectStandardOutput = true;
+            inf.RedirectStandardError = true;
+            inf.CreateNoWindow = true;
             Process winget = new Process();
             winget.StartInfo = inf;
             winget.Start();
