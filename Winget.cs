@@ -37,6 +37,8 @@ namespace WindowsSetupTool.Installers
             inf.ArgumentList.Add("--disable-interactivity");
             inf.UseShellExecute = false;
             inf.RedirectStandardOutput = true;
+            inf.RedirectStandardError = true;
+            inf.CreateNoWindow = true;
             Process winget = new Process();
             winget.StartInfo = inf;
             winget.Start();
