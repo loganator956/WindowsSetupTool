@@ -38,12 +38,13 @@ namespace WindowsSetupTool
         {
             List<ApplicationSource> installQueue = new List<ApplicationSource>();
 
-            // gather 
+            // gather apps + dependencies
             foreach (ApplicationSource app in apps)
             {
                 installQueue.AddRange(GatherSourcesRecursively(app));
             }
 
+            // iterate through each app and install them
             for (int i = 0; i < installQueue.Count; i++)
             {
                 InstallApp(installQueue[i]);
