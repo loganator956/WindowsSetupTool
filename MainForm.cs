@@ -85,7 +85,7 @@ namespace WindowsSetupTool
             switch (app.Type)
             {
                 case InstallType.Winget:
-                    Winget.InstallApp(app.AppID);
+                    Winget.InstallApp(app.InstallID);
                     break;
                 case InstallType.DirectInstaller:
                     DirectInstaller.InstallApp(app);
@@ -168,7 +168,7 @@ namespace WindowsSetupTool
         private void exportListToolStripButton_Click(object sender, EventArgs e)
         {
             List<string> appIDs = new List<string>();
-            foreach(ApplicationSource app in availableApplicationsCheckedListBox.CheckedItems)
+            foreach (ApplicationSource app in availableApplicationsCheckedListBox.CheckedItems)
             {
                 appIDs.Add(app.AppID);
             }

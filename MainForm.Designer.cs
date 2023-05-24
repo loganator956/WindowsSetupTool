@@ -217,8 +217,8 @@
             // appInstallToolStripStatusLabel1
             // 
             appInstallToolStripStatusLabel1.Name = "appInstallToolStripStatusLabel1";
-            appInstallToolStripStatusLabel1.Size = new Size(118, 17);
-            appInstallToolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            appInstallToolStripStatusLabel1.Size = new Size(26, 17);
+            appInstallToolStripStatusLabel1.Text = "Idle";
             // 
             // MainForm
             // 
