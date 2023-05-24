@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel;
 using System.Diagnostics;
 
 namespace WindowsSetupTool.Installers
@@ -50,6 +51,7 @@ namespace WindowsSetupTool.Installers
             ProcessStartInfo inf = new ProcessStartInfo("winget.exe");
             inf.ArgumentList.Add("show");
             inf.ArgumentList.Add(appID);
+            inf.ArgumentList.Add("--disable-interactivity");
             inf.UseShellExecute = false;
             inf.RedirectStandardOutput = true;
             Process winget = new Process();
@@ -62,6 +64,27 @@ namespace WindowsSetupTool.Installers
             infoCache.Add(new WingetAppInfo(appID, output));
             SaveInfoCache();
             return output;
+        }
+
+        public static BackgroundWorker GetAppInfoInBackground(string appID)
+        {
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += AppInfoBackgroundWorker_DoWork;
+            worker.RunWorkerAsync(appID);
+            return worker;
+        }
+
+        private static void AppInfoBackgroundWorker_DoWork(object? sender, DoWorkEventArgs e)
+        {
+            string? appID = e.Argument as string;
+            if (appID != null)
+            {
+                e.Result = GetAppInfo(appID);
+            }
+            else
+            {
+                e.Result = null;
+            }
         }
 
         private static void RunOperation(string operation, string appID)
