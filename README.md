@@ -5,9 +5,9 @@ This is just a simple winforms tool that I have created in order to be able to a
 ## Features
 
 - Install apps using winget
+- Install apps by downloading the installers from URL and running them
+- Be able to save and load preset lists of apps
 
 ## Planned Features
 
-- Install apps by downloading the installers from URL and running them
 - Pull and place config files/directories into the correct places
-- Be able to save and load presets (To automatically select which apps/settings to restore?)
