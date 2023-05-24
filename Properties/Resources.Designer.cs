@@ -73,9 +73,29 @@ namespace WindowsSetupTool.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap baseline_file_open_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_file_open_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap baseline_install_desktop_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_install_desktop_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap baseline_save_alt_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_save_alt_black_24dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             tabControl1 = new TabControl();
@@ -137,7 +136,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { installAllToolStripButton, toolStripSeparator1, exportListToolStripButton, importListToolStripButton });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { installAllToolStripButton, toolStripSeparator1, importListToolStripButton, exportListToolStripButton });
             toolStrip1.Location = new Point(3, 19);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(338, 25);
@@ -162,7 +161,7 @@
             // exportListToolStripButton
             // 
             exportListToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            exportListToolStripButton.Image = (Image)resources.GetObject("exportListToolStripButton.Image");
+            exportListToolStripButton.Image = Properties.Resources.baseline_save_alt_black_24dp;
             exportListToolStripButton.ImageTransparentColor = Color.Magenta;
             exportListToolStripButton.Name = "exportListToolStripButton";
             exportListToolStripButton.Size = new Size(23, 22);
@@ -172,7 +171,7 @@
             // importListToolStripButton
             // 
             importListToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            importListToolStripButton.Image = (Image)resources.GetObject("importListToolStripButton.Image");
+            importListToolStripButton.Image = Properties.Resources.baseline_file_open_black_24dp;
             importListToolStripButton.ImageTransparentColor = Color.Magenta;
             importListToolStripButton.Name = "importListToolStripButton";
             importListToolStripButton.Size = new Size(23, 22);
