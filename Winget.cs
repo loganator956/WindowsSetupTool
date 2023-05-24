@@ -8,24 +8,7 @@ namespace WindowsSetupTool.Installers
     {
         private const string cacheName = "wingetcache.json";
         static List<WingetAppInfo> infoCache = new List<WingetAppInfo>();
-        public static void LoadInfoCache()
-        {
-            if (File.Exists(cacheName))
-            {
-                WingetAppInfo[]? cache = JsonConvert.DeserializeObject<WingetAppInfo[]>(File.ReadAllText(cacheName));
-                if (cache != null)
-                {
-                    infoCache.Clear();
-                    infoCache.AddRange(cache);
-                }
-            }
-        }
 
-        public static void SaveInfoCache()
-        {
-            string json = JsonConvert.SerializeObject(infoCache);
-            File.WriteAllText(cacheName, json);
-        }
         public static void InstallApp(string appID)
         {
             RunOperation("install", appID);
@@ -62,7 +45,6 @@ namespace WindowsSetupTool.Installers
             winget.WaitForExit();
 
             infoCache.Add(new WingetAppInfo(appID, output));
-            SaveInfoCache();
             return output;
         }
 
