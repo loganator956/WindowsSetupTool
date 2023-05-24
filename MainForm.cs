@@ -167,12 +167,20 @@ namespace WindowsSetupTool
 
         private void exportListToolStripButton_Click(object sender, EventArgs e)
         {
-            List<string> appIDs = new List<string>();
-            foreach (ApplicationSource app in availableApplicationsCheckedListBox.CheckedItems)
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.DefaultExt = ".txt";
+            dialog.Title = "Save package list";
+            dialog.CheckPathExists = true;
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                appIDs.Add(app.AppID);
+                List<string> appIDs = new List<string>();
+                foreach (ApplicationSource app in availableApplicationsCheckedListBox.CheckedItems)
+                {
+                    appIDs.Add(app.AppID);
+                }
+                File.WriteAllLines(dialog.FileName, appIDs.ToArray());
             }
-            File.WriteAllLines("Exported App List.txt", appIDs.ToArray());
+            
         }
     }
 }
