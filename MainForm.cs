@@ -49,7 +49,7 @@ namespace WindowsSetupTool
             {
                 InstallApp(installQueue[i]);
                 // update status strip
-                appInstallToolStripStatusLabel1.Text = $"Installing: {currentApp.AppName}";
+                appInstallToolStripStatusLabel1.Text = $"Installed: {installQueue[i]}";
                 appInstallToolStripProgressBar1.Value = i / apps.Length;
             }
             installAllToolStripButton.Enabled = true;
