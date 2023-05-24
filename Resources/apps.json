@@ -373,5 +373,33 @@
     "Type": 1,
     "TempFileName": "Battle.net-Setup.exe",
     "Dependencies": []
+  },
+  {
+    "AppName": "voidtools Everything",
+    "AppID": "voidtools.Everything",
+    "InstallID": "voidtools.Everything",
+    "Type": 0,
+    "Dependencies": []
+  },
+  {
+    "AppName": "Windows Terminal",
+    "AppID": "Microsoft.WindowsTerminal",
+    "InstallID": "Microsoft.WindowsTerminal",
+    "Type": 0,
+    "Dependencies": []
+  },
+  {
+    "AppName": "Spotify",
+    "AppID": "Spotify.Spotify",
+    "InstallID": "Spotify.Spotify",
+    "Type": 0,
+    "Dependencies": []
+  },
+  {
+    "AppName": "VirtualBox",
+    "AppID": "Oracle.VirtualBox",
+    "InstallID": "Oracle.VirtualBox",
+    "Type": 0,
+    "Dependencies": []
   }
 ]
